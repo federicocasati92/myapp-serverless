@@ -27,6 +27,7 @@ This provides a structured overview of your AWS serverless project.
     }
   ]
 }
+```
 
 🌍 Amazon CloudFront
 
