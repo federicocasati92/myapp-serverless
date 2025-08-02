@@ -1,4 +1,4 @@
- 🧩 AWS Serverless Web App – Architecture and Services 
+``` 🧩 AWS Serverless Web App – Architecture and Services 
 
 This provides a structured overview of your AWS serverless project. 
 
