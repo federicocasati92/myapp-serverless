@@ -7,7 +7,7 @@ This provides a structured overview of your AWS serverless project.
 ## 📁 Amazon S3 – Static Website Hosting
 
 - **Bucket Name:** stsite3.com  
-- **Public Access Enabled:** Yes  
+- **Public Access Enabled:** No  
 - **Index Document:** `index.html`  
 - **Endpoint URL:** `http://stsite3.com.s3-website-us-east-1.amazonaws.com`
 
