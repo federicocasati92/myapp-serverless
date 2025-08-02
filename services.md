@@ -9,24 +9,24 @@ This provides a structured overview of your AWS serverless project.
 - **Bucket Name:** stsite3.com
 - **Public Access Enabled:** Yes 
 - **Index Document:** `index.html`
-- **Endpoint URL:** `http://stsite3.com.s3-website-us-east-1.amazonaws.com
+- **Endpoint URL:** `http://stsite3.com.s3-website-us-east-1.amazonaws.com`
 
 **Security Notes:**
 - Current bucket policy:
-```
+
+```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "*",
-            "Resource": "arn:aws:s3:::stsite3.com/*"
-        }
-    ]
-}  
-```
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": "arn:aws:s3:::stsite3.com/*"
+    }
+  ]
+}
 
 
 
