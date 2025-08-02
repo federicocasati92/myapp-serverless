@@ -1,5 +1,6 @@
  🧩 AWS Serverless Web App – Architecture and Services 
 
+This provides a structured overview of your AWS serverless project. 
 
 ---
 
@@ -23,8 +24,7 @@
             "Resource": "arn:aws:s3:::stsite3.com/*"
         }
     ]
-}
-
+}  ```
 
 
 
