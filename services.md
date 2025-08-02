@@ -13,7 +13,8 @@ This provides a structured overview of your AWS serverless project.
 
 **Security Notes:**
 - Current bucket policy:
-```{
+```
+{
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -24,7 +25,8 @@ This provides a structured overview of your AWS serverless project.
             "Resource": "arn:aws:s3:::stsite3.com/*"
         }
     ]
-}  ```
+}  
+```
 
 
 
