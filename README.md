@@ -51,8 +51,6 @@ Main Components:
 
     Restrict CORS to specific origins.
 
-    Limit public access to the S3 bucket.
-
     Optimize CloudFront cache for static resources.
 
     Add federated login (Google, Facebook) via Cognito.
