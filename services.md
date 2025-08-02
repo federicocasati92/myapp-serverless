@@ -110,12 +110,6 @@ This provides a structured overview of your AWS serverless project.
 
     Connected to Endpoint: POST /update-visit
 
-Token Parsing Logic (example):
-
-token = event['headers']['Authorization'].split(" ")[1]
-decoded = jwt.decode(token, options={"verify_signature": False})
-user_id = decoded['sub']
-
     IAM Role ARN:
     arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
 
