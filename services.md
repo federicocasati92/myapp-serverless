@@ -22,7 +22,7 @@ This provides a structured overview of your AWS serverless project.
       "Sid": "PublicReadGetObject",
       "Effect": "Allow",
       "Principal": "*",
-      "Action": "*",
+      "Action": "s3:GetObject",
       "Resource": "arn:aws:s3:::stsite3.com/*"
     }
   ]
