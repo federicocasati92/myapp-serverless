@@ -1,4 +1,4 @@
-# 🧩 AWS Serverless Web App – Architecture and Services (Customizable Template)
+ 🧩 AWS Serverless Web App – Architecture and Services (Customizable Template)
 
 This template provides a structured overview of your AWS serverless project. Fill in the placeholders with your project-specific values.
 
@@ -6,100 +6,110 @@ This template provides a structured overview of your AWS serverless project. Fil
 
 ## 📁 Amazon S3 – Static Website Hosting
 
-- **Bucket Name:** `<YOUR_BUCKET_NAME>`
-- **Public Access Enabled:** Yes / No
+- **Bucket Name:** stsite3.com
+- **Public Access Enabled:** Yes 
 - **Index Document:** `index.html`
-- **Endpoint URL:** `http://<S3_WEBSITE_ENDPOINT>`
+- **Endpoint URL:** `http://stsite3.com.s3-website-us-east-1.amazonaws.com
 
 **Security Notes:**
 - Current bucket policy:
-```json
+```{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "*",
+            "Resource": "arn:aws:s3:::stsite3.com/*"
+        }
+    ]
+}
 
 
 
 
-<INSERT_YOUR_BUCKET_POLICY>
 🌍 Amazon CloudFront
-Distribution ID: <YOUR_CLOUDFRONT_DIST_ID>
+Distribution ID: E2MYBIFW24JUNI
 
-Domain Name: https://<YOUR_CLOUDFRONT_DOMAIN>
+Domain Name: dtn4bsrr7bbyf.cloudfront.net
 
-S3 Origin Domain: <YOUR_S3_ORIGIN>
+S3 Origin Domain: stsite3.com.s3-website-us-east-1.amazonaws.com
 
-API Gateway Origin: <YOUR_API_ORIGIN>
 
-Caching Settings: <STATIC / DYNAMIC>
+Caching Settings: Custom caching ttl=0 for hands-on purpose
+
+Response headers policy: Custom allowing https://us-east-1crtzroy18.auth.us-east-1.amazoncognito.com
 
 
 
 🔐 AWS WAF – Web Application Firewall
-Web ACL Name: <YOUR_WEB_ACL_NAME>
+Web ACL Name: block-my-ip
 
-Associated Resources: CloudFront / API Gateway
+Associated Resources: CloudFront 
 
-Blocked IP Set: <YOUR_IP_SET_NAME>
+Blocked IP Set: block-my-ip
 
-Monitoring Metrics: <CLOUDWATCH_METRIC_NAMES>
+Monitoring Metrics: log groups: blockmyip  metric filter: blockmyip
 
-Notification Topic ARN (SNS): <SNS_TOPIC_ARN>
+Notification Topic ARN (SNS): arn:aws:sns:us-east-1:617842004789:Default_CloudWatch_Alarms_Topic
 
 
 
 👤 Amazon Cognito – User Authentication
-User Pool ID: <YOUR_USER_POOL_ID>
+User Pool ID: us-east-1_crTZroY18
 
-App Client ID: <YOUR_APP_CLIENT_ID>
+App Client ID: 7kob7less0v0j8qi36jnhd9o6g
 
-Hosted UI Domain: <YOUR_COGNITO_DOMAIN>
+Hosted UI Domain: https://us-east-1crtzroy18.auth.us-east-1.amazoncognito.com
 
-Login Callback URL: <YOUR_CALLBACK_URL>
+Login Callback URL: https://dtn4bsrr7bbyf.cloudfront.net/
 
 Token Processing in Frontend: Extract id_token from window.location.hash
 
 
 
 🚀 Amazon API Gateway – REST API
-API Name: <YOUR_API_NAME>
+API Name: My REST API  id=7ua2wf7t5b
 
-Stage: <dev / prod>
+Stage: prod
 
-Endpoint URL: https://<API_ID>.execute-api.<REGION>.amazonaws.com/<STAGE>/
+Endpoint URL: https://7ua2wf7t5b.execute-api.us-east-1.amazonaws.com/prod
 
 Methods Enabled: POST, OPTIONS
 
 CORS Settings:
 
-Allowed Origins: * or specific domains
+Allowed Origins: * 
 
 Allowed Headers: Content-Type, Authorization
 
+Integration response: proxy lambda integration
+
 Cognito Authorizer:
 
-User Pool ID: <YOUR_USER_POOL_ID>
+User Pool ID: User pool - 1wakzk - crTZroY18 (us-east-1)
 
 Token Source Header: Authorization: Bearer <id_token>
 
 
 
 ⚙️ AWS Lambda – Backend Function
-Function Name: <YOUR_LAMBDA_FUNCTION_NAME>
+Function Name: clickcounterfunction
 
-Runtime: Python 3.x
+Runtime: Python 3.13
 
 Handler: lambda_function.lambda_handler
 
 Connected API Endpoint: POST /update-visit
 
-Code Snippet Template:
-
-python
-Copia
-Modifica
 token = event['headers']['Authorization'].split(" ")[1]
 decoded = jwt.decode(token, options={"verify_signature": False})
 user_id = decoded['sub']
+
 # DynamoDB update logic
-IAM Role ARN for Lambda: <LAMBDA_EXECUTION_ROLE>
+IAM Role ARN for Lambda: arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+               
 
 
 
@@ -110,47 +120,40 @@ Primary Key: id (String)
 
 Additional Attributes: visitCount (Number)
 
-Provisioned Throughput / On-Demand: <YOUR_CHOICE>
+Provisioned Throughput / On-Demand: on-Demand
 
 
 
 📣 Amazon SNS – Notifications
-Topic Name: <YOUR_SNS_TOPIC_NAME>
+Topic Name: Default_CloudWatch_Alarms_Topic
 
-Recipients (Emails): <EMAIL_1>, <EMAIL_2>
+Recipients (Emails): federico.casati@outlook.com
 
-CloudWatch Trigger: <METRIC_NAME or FILTER_PATTERN>
+CloudWatch Trigger: blockmyip
+
+
 
 📊 Amazon CloudWatch – Logging and Metrics
 
-
 Log Groups:
 
-/aws/lambda/<YOUR_LAMBDA_FUNCTION_NAME>
+/aws/lambda/clickcounterfunction
 
-API Gateway Execution Logs
+API-Gateway-Execution-Logs_7ua2wf7t5b/prod
 
-Metric Filters: <EXAMPLES>
-
-Alarms & Alerts: <EXAMPLES>
+Metric filters: blockmyip (WAF)
+Alarms & Alerts: blockmyip
 
 
 
 🔐 IAM – Roles & Policies
-Lambda Execution Role: <ROLE_NAME>
-
-Permissions Granted:
-
-dynamodb:UpdateItem
-
-logs:PutLogEvents
-
-Least Privilege Review: ✅ / ❌
+Lambda Execution Role: AmazonDynamoDBFullAccess
+                       AWSLambdaBasicExecutionRole-2fb97b34-3e84-440d-b4f3-8d370f8c2983 (logs)
 
 
 
 🔁 CORS Configuration
-Allowed Origins: <http://your-frontend-domain>
+Allowed Origins: *
 
 Allowed Methods: GET, POST, OPTIONS
 
