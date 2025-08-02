@@ -1,6 +1,5 @@
- 🧩 AWS Serverless Web App – Architecture and Services (Customizable Template)
+ 🧩 AWS Serverless Web App – Architecture and Services 
 
-This template provides a structured overview of your AWS serverless project. Fill in the placeholders with your project-specific values.
 
 ---
 
