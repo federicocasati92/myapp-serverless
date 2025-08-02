@@ -1,17 +1,17 @@
-``` 🧩 AWS Serverless Web App – Architecture and Services 
+# 🧩 AWS Serverless Architecture Overview
 
-This provides a structured overview of your AWS serverless project. 
+This provides a structured overview of your AWS serverless project.
 
 ---
 
 ## 📁 Amazon S3 – Static Website Hosting
 
-- **Bucket Name:** stsite3.com
-- **Public Access Enabled:** Yes 
-- **Index Document:** `index.html`
+- **Bucket Name:** stsite3.com  
+- **Public Access Enabled:** Yes  
+- **Index Document:** `index.html`  
 - **Endpoint URL:** `http://stsite3.com.s3-website-us-east-1.amazonaws.com`
 
-**Security Notes:**
+**Security Notes:**  
 - Current bucket policy:
 
 ```json
@@ -27,136 +27,140 @@ This provides a structured overview of your AWS serverless project.
     }
   ]
 }
-```
-
 
 🌍 Amazon CloudFront
-Distribution ID: E2MYBIFW24JUNI
 
-Domain Name: dtn4bsrr7bbyf.cloudfront.net
+    Distribution ID: E2MYBIFW24JUNI
 
-S3 Origin Domain: stsite3.com.s3-website-us-east-1.amazonaws.com
+    Domain Name: dtn4bsrr7bbyf.cloudfront.net
 
+    S3 Origin Domain: stsite3.com.s3-website-us-east-1.amazonaws.com
 
-Caching Settings: Custom caching ttl=0 for hands-on purpose
+    Caching Settings: Custom caching TTL = 0
 
-Response headers policy: Custom allowing https://us-east-1crtzroy18.auth.us-east-1.amazoncognito.com
-
-
+    Response headers policy: Custom – allows Cognito domain
 
 🔐 AWS WAF – Web Application Firewall
-Web ACL Name: block-my-ip
 
-Associated Resources: CloudFront 
+    Web ACL Name: block-my-ip
 
-Blocked IP Set: block-my-ip
+    Associated Resource: CloudFront
 
-Monitoring Metrics: log groups: blockmyip  metric filter: blockmyip
+    Blocked IP Set: block-my-ip
 
-Notification Topic ARN (SNS): arn:aws:sns:us-east-1:617842004789:Default_CloudWatch_Alarms_Topic
+    Monitoring:
 
+        Log Group: blockmyip
 
+        Metric Filter: blockmyip
+
+        Notification Topic (SNS):
+        arn:aws:sns:us-east-1:617842004789:Default_CloudWatch_Alarms_Topic
 
 👤 Amazon Cognito – User Authentication
-User Pool ID: us-east-1_crTZroY18
 
-App Client ID: 7kob7less0v0j8qi36jnhd9o6g
+    User Pool ID: us-east-1_crTZroY18
 
-Hosted UI Domain: https://us-east-1crtzroy18.auth.us-east-1.amazoncognito.com
+    App Client ID: 7kob7less0v0j8qi36jnhd9o6g
 
-Login Callback URL: https://dtn4bsrr7bbyf.cloudfront.net/
+    Hosted UI Domain:
+    https://us-east-1crtzroy18.auth.us-east-1.amazoncognito.com
 
-Token Processing in Frontend: Extract id_token from window.location.hash
+    Login Callback URL:
+    https://dtn4bsrr7bbyf.cloudfront.net/
 
-
+    Token Handling (Frontend):
+    Extract id_token from window.location.hash
 
 🚀 Amazon API Gateway – REST API
-API Name: My REST API  id=7ua2wf7t5b
 
-Stage: prod
+    API Name: My REST API
 
-Endpoint URL: https://7ua2wf7t5b.execute-api.us-east-1.amazonaws.com/prod
+    ID: 7ua2wf7t5b
 
-Methods Enabled: POST, OPTIONS
+    Stage: prod
 
-CORS Settings:
+    Endpoint:
+    https://7ua2wf7t5b.execute-api.us-east-1.amazonaws.com/prod
 
-Allowed Origins: * 
+    Methods Enabled: POST, OPTIONS
 
-Allowed Headers: Content-Type, Authorization
+    CORS Settings:
 
-Integration response: proxy lambda integration
+        Allowed Origins: *
 
-Cognito Authorizer:
+        Allowed Headers: Content-Type, Authorization
 
-User Pool ID: User pool - 1wakzk - crTZroY18 (us-east-1)
+    Integration Type: Lambda Proxy
 
-Token Source Header: Authorization: Bearer <id_token>
+    Cognito Authorizer:
 
+        User Pool ID: us-east-1_crTZroY18
 
+        Token Source: Authorization: Bearer <id_token>
 
 ⚙️ AWS Lambda – Backend Function
-Function Name: clickcounterfunction
 
-Runtime: Python 3.13
+    Function Name: clickcounterfunction
 
-Handler: lambda_function.lambda_handler
+    Runtime: Python 3.13
 
-Connected API Endpoint: POST /update-visit
+    Handler: lambda_function.lambda_handler
+
+    Connected to Endpoint: POST /update-visit
+
+Token Parsing Logic (example):
 
 token = event['headers']['Authorization'].split(" ")[1]
 decoded = jwt.decode(token, options={"verify_signature": False})
 user_id = decoded['sub']
 
-# DynamoDB update logic
-IAM Role ARN for Lambda: arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
-               
-
-
+    IAM Role ARN:
+    arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
 
 🗃️ Amazon DynamoDB – NoSQL Storage
-Table Name: ClickCounter
 
-Primary Key: id (String)
+    Table Name: ClickCounter
 
-Additional Attributes: visitCount (Number)
+    Primary Key: id (String)
 
-Provisioned Throughput / On-Demand: on-Demand
+    Attributes: visitCount (Number)
 
-
+    Billing Mode: On-Demand
 
 📣 Amazon SNS – Notifications
-Topic Name: Default_CloudWatch_Alarms_Topic
 
-Recipients (Emails): federico.casati@outlook.com
+    Topic Name: Default_CloudWatch_Alarms_Topic
 
-CloudWatch Trigger: blockmyip
+    Recipient: federico.casati@outlook.com
 
+    CloudWatch Trigger: blockmyip
 
+📊 Amazon CloudWatch – Logging & Metrics
 
-📊 Amazon CloudWatch – Logging and Metrics
+    Log Groups:
 
-Log Groups:
+        /aws/lambda/clickcounterfunction
 
-/aws/lambda/clickcounterfunction
+        API-Gateway-Execution-Logs_7ua2wf7t5b/prod
 
-API-Gateway-Execution-Logs_7ua2wf7t5b/prod
+    Metric Filter: blockmyip
 
-Metric filters: blockmyip (WAF)
-Alarms & Alerts: blockmyip
-
-
+    Alarms: blockmyip
 
 🔐 IAM – Roles & Policies
-Lambda Execution Role: AmazonDynamoDBFullAccess
-                       AWSLambdaBasicExecutionRole-2fb97b34-3e84-440d-b4f3-8d370f8c2983 (logs)
 
+    Lambda Execution Role:
 
+        AmazonDynamoDBFullAccess
+
+        AWSLambdaBasicExecutionRole-2fb97b34-3e84-440d-b4f3-8d370f8c2983
 
 🔁 CORS Configuration
-Allowed Origins: *
 
-Allowed Methods: GET, POST, OPTIONS
+    Allowed Origins: *
 
-Allowed Headers: Authorization, Content-Type
+    Allowed Methods: GET, POST, OPTIONS
+
+    Allowed Headers: Authorization, Content-Type
 
