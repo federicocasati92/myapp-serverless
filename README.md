@@ -1,82 +1,64 @@
-📦 System Architecture
+# Serverless ClickCounter WebApp on AWS
 
-AWS Architecture
-Main Components:
+This project demonstrates a secure and scalable **serverless web application architecture** on AWS, combining a static frontend with an authenticated backend and cloud-native alerting features.
 
-    S3: Hosting the static HTML website.
+## 🔧 Architecture Overview
 
-    CloudFront + WAF: Global CDN + firewall to block suspicious IPs.
+![Architecture Diagram](./aws_architecture_diagram.png)
 
-    Amazon Cognito: User authentication with Hosted UI.
+**Key Components:**
 
-    API Gateway: REST entry point protected by Cognito Authorizer.
+- **S3 + CloudFront:** static hosting of the frontend with CDN acceleration
+- **WAF (Web Application Firewall):** protects CloudFront from malicious IPs
+- **Cognito User Pool:** user authentication and token generation
+- **API Gateway:** exposes the backend as a REST API with Cognito-based authorization
+- **Lambda:** handles logic to update click counts and trigger alerts
+- **DynamoDB:** NoSQL table for storing click counts
+- **CloudWatch + SNS:** monitors suspicious activity and sends notifications
 
-    AWS Lambda: Serverless function to update the visit counter.
+## 🔐 Security Features
 
-    DynamoDB: NoSQL database to store the counter.
+- API access protected via **Amazon Cognito JWT tokens**
+- **AWS WAF** blocks IPs based on custom rules
+- **CloudWatch Alarms + SNS** send alerts on WAF rule matches
 
-    SNS + CloudWatch: Logging and notifications for security and monitoring.
+## 📁 File Structure
 
-🚀 Features
+/frontend --> Static website files (HTML, JS, Cognito integration)
+/backend --> Lambda function code
+/docs/waf-cloudwatch-sns.md --> Detailed security/alerting logic
+/screenshots --> AWS console screenshots (to be added)
 
-    Secure login via Amazon Cognito.
+markdown
+Copia
+Modifica
 
-    APIs protected by JWT token (id_token).
+## 🚀 How to Deploy
 
-    Update of the visit counter for each user.
+This is a manual deployment project (no IaC yet). Main steps:
 
-    Protection from malicious IPs with WAF + SNS notifications.
+1. Upload frontend files to S3, enable static hosting
+2. Set up CloudFront with S3 origin and WAF association
+3. Configure Cognito User Pool and App Client
+4. Create REST API in API Gateway with Cognito authorizer
+5. Create Lambda function, grant necessary permissions
+6. Set up DynamoDB table for click storage
+7. Define WAF rules and CloudWatch alarms
 
-    Static hosting of the HTML site via S3 + CloudFront.
+## 📷 AWS Console Screenshots
 
-🛡️ Security
+→ [Coming soon – will include screenshots of CloudFront, API Gateway, Lambda, WAF, Cognito, DynamoDB]
 
-    Access to the site through CloudFront, with S3 not directly accessible.
+## 📚 Technologies Used
 
-    JWT token validation via Cognito Authorizer.
+- Amazon S3, CloudFront, WAF
+- AWS Lambda, API Gateway, DynamoDB
+- Amazon Cognito
+- Amazon CloudWatch + SNS
 
-    IAM policies following the principle of least privilege.
+## 🧠 Learning Outcome
 
-    Email notifications in case of IP blocking via AWS SNS.
-
-📊 Monitoring
-
-    CloudWatch Logs for Lambda, API Gateway, and WAF.
-
-    Custom metrics for number of visits and blocked IPs.
-
-    SNS configured to send email alerts.
-
-🔧 Next Steps
-
-    Restrict CORS to specific origins.
-
-    Optimize CloudFront cache for static resources.
-
-    Add federated login (Google, Facebook) via Cognito.
-
-    Admin dashboard to view counters and logs.
-
-📁 File Structure
-
-    index.html – Static page with login button.
-
-    lambda_function.py – Lambda function for counter.
-
-    aws_architecture_diagram.png – Architecture diagram.
-
-    README.md – This file.
-
-    services.md – Summary of services in my project.
-
-✅ Requirements
-
-    AWS account with permissions on S3, Cognito, Lambda, API Gateway, DynamoDB, CloudFront.
-
-    AWS CLI configured.
-
-    Python 3.x for Lambda.
-
-📌 Notes
-
-Make sure IAM, CORS, and WAF configurations are thoroughly tested before deploying to production environment.
+- Designing real-world serverless architecture
+- Secure API development with JWT authorization
+- Alerting and logging integration via native AWS services
+- Full end-to-end authentication and data handling in the cloud
