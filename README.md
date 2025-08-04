@@ -16,6 +16,21 @@ This project demonstrates a secure and scalable **serverless web application arc
 - **DynamoDB:** NoSQL table for storing click counts
 - **CloudWatch + SNS:** monitors suspicious activity and sends notifications
 
+## Accesso alla Web App
+
+Puoi accedere alla web app pubblica tramite il seguente link CloudFront:  
+[https://dtn4bsrr7bbyf.cloudfront.net/](https://dtn4bsrr7bbyf.cloudfront.net/)
+
+### Login con Amazon Cognito
+
+L'app utilizza Amazon Cognito per l'autenticazione degli utenti.  
+
+Per effettuare il login, puoi usare uno dei seguenti account di test:
+
+- **Username:** testuser1@example.com  
+  **Password:** PasswordTest123!!
+
+
 ## 🔐 Security Features
 
 - API access protected via **Amazon Cognito JWT tokens**
