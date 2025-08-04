@@ -62,7 +62,9 @@ This is a manual deployment project (no IaC yet). Main steps:
 
 ## 📷 AWS Console Screenshots
 
-→ [Coming soon – will include screenshots of CloudFront, API Gateway, Lambda, WAF, Cognito, DynamoDB]
+Puoi trovare tutti gli screenshot organizzati per servizio nella cartella:  
+[/screenshots/](./screenshots/)
+
 
 ## 📚 Technologies Used
 
