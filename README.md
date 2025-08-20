@@ -2,19 +2,19 @@
 
 This project demonstrates a secure and scalable **serverless web application architecture** on AWS, combining a static frontend with an authenticated backend and cloud-native alerting features.
 
-## Why This Project is Special
 
-Even though this project was set up manually via the AWS Console, it demonstrates a full end-to-end
-serverless architecture on AWS. It combines a static frontend, secure user authentication, backend logic,
-and cloud-native alerting, providing a hands-on example of a production-ready serverless web app.
-
-### 🔧 Architecture Overview
+## 🔧 Architecture Overview
 
 ![Architecture Diagram](./aws_architecture_diagram.png)
+
 
 ### Detailed Architecture
 
 For a complete breakdown of all AWS services, configurations, and security settings, see [architecture.md](./architecture.md).
+
+#### Architecture & Contributions
+
+“Frontend HTML template used; backend integration, AWS services setup, and serverless architecture implemented and configured manually.”
 
 **Key Components:**
 
