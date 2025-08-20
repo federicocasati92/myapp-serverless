@@ -12,7 +12,7 @@ and cloud-native alerting, providing a hands-on example of a production-ready se
 
 ![Architecture Diagram](./aws_architecture_diagram.png)
 
-## 📜 Detailed Architecture
+### Detailed Architecture
 
 For a complete breakdown of all AWS services, configurations, and security settings, see [architecture.md](./architecture.md).
 
