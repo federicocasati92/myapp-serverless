@@ -27,7 +27,7 @@ The design follows best practices for security, performance, and maintainability
 ## Web App Access
 
 You can access the public web app via the following CloudFront link:
-<//dtn4bsrr7bbyf.cloudfront.net/>
+[https://dtn4bsrr7bbyf.cloudfront.net/](https://dtn4bsrr7bbyf.cloudfront.net/)
 
 ## Login with Amazon Cognito
 
