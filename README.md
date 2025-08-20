@@ -2,7 +2,15 @@
 
 This project demonstrates a secure and scalable **serverless web application architecture** on AWS, combining a static frontend with an authenticated backend and cloud-native alerting features.
 
-## 🔧 Architecture Overview
+## Why This Project is Special
+
+This project stands out because it demonstrates a fully **secure and scalable serverless architecture** on AWS.  
+
+It combines a static frontend with an authenticated backend, cloud-native alerting, and monitoring.  
+
+The design follows best practices for security, performance, and maintainability, making it **production-ready** and easy to extend.  
+
+### 🔧 Architecture Overview
 
 ![Architecture Diagram](./aws_architecture_diagram.png)
 
@@ -21,14 +29,15 @@ This project demonstrates a secure and scalable **serverless web application arc
 Puoi accedere alla web app pubblica tramite il seguente link CloudFront:  
 [https://dtn4bsrr7bbyf.cloudfront.net/](https://dtn4bsrr7bbyf.cloudfront.net/)
 
-### Login con Amazon Cognito
+## Login with Amazon Cognito
 
-L'app utilizza Amazon Cognito per l'autenticazione degli utenti.  
+The app uses Amazon Cognito for user authentication.
 
-Per effettuare il login, puoi usare uno dei seguenti account di test:
+To log in, you can use one of the following test accounts:
 
-- **Username:** testuser1@example.com  
-  **Password:** PasswordTest123!!
+Username: testuser1@example.com
+
+Password: PasswordTest123!!
 
 
 ## 🔐 Security Features
@@ -38,15 +47,12 @@ Per effettuare il login, puoi usare uno dei seguenti account di test:
 - **CloudWatch Alarms + SNS** send alerts on WAF rule matches
 
 ## 📁 File Structure
-
+```text
 /frontend --> Static website files (HTML, JS, Cognito integration)
 /backend --> Lambda function code
 /docs/waf-cloudwatch-sns.md --> Detailed security/alerting logic
 /screenshots --> AWS console screenshots (to be added)
-
-markdown
-Copia
-Modifica
+```
 
 ## 🚀 How to Deploy
 
@@ -62,8 +68,8 @@ This is a manual deployment project (no IaC yet). Main steps:
 
 ## 📷 AWS Console Screenshots
 
-Puoi trovare tutti gli screenshot organizzati per servizio nella cartella:  
-[/screenshots/](./screenshots/)
+You can find all the screenshots organized by service
+in the folder: [screenshots](./screenshots/)
 
 
 ## 📚 Technologies Used
