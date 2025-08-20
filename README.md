@@ -24,10 +24,10 @@ The design follows best practices for security, performance, and maintainability
 - **DynamoDB:** NoSQL table for storing click counts
 - **CloudWatch + SNS:** monitors suspicious activity and sends notifications
 
-## Accesso alla Web App
+## Web App Access
 
-Puoi accedere alla web app pubblica tramite il seguente link CloudFront:  
-[https://dtn4bsrr7bbyf.cloudfront.net/](https://dtn4bsrr7bbyf.cloudfront.net/)
+You can access the public web app via the following CloudFront link:
+<//dtn4bsrr7bbyf.cloudfront.net/>
 
 ## Login with Amazon Cognito
 
@@ -38,7 +38,6 @@ To log in, you can use one of the following test accounts:
 Username: testuser1@example.com
 
 Password: PasswordTest123!!
-
 
 ## 🔐 Security Features
 
@@ -53,7 +52,6 @@ Password: PasswordTest123!!
 /docs/waf-cloudwatch-sns.md --> Detailed security/alerting logic
 /screenshots --> AWS console screenshots (to be added)
 ```
-
 ## 🚀 How to Deploy
 
 This is a manual deployment project (no IaC yet). Main steps:
@@ -70,7 +68,6 @@ This is a manual deployment project (no IaC yet). Main steps:
 
 You can find all the screenshots organized by service
 in the folder: [screenshots](./screenshots/)
-
 
 ## 📚 Technologies Used
 
