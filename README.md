@@ -4,11 +4,9 @@ This project demonstrates a secure and scalable **serverless web application arc
 
 ## Why This Project is Special
 
-This project stands out because it demonstrates a fully **secure and scalable serverless architecture** on AWS.  
-
-It combines a static frontend with an authenticated backend, cloud-native alerting, and monitoring.  
-
-The design follows best practices for security, performance, and maintainability, making it **production-ready** and easy to extend.  
+Even though this project was set up manually via the AWS Console, it demonstrates a full end-to-end
+serverless architecture on AWS. It combines a static frontend, secure user authentication, backend logic,
+and cloud-native alerting, providing a hands-on example of a production-ready serverless web app.
 
 ### 🔧 Architecture Overview
 
