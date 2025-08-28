@@ -51,7 +51,6 @@ Password: PasswordTest123!!
 ```text
 /frontend --> Static website files (HTML, JS, Cognito integration)
 /backend --> Lambda function code
-/docs/waf-cloudwatch-sns.md --> Detailed security/alerting logic
 /screenshots --> AWS console screenshots 
 ```
 ## 🚀 How to Deploy
