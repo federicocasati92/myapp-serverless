@@ -127,7 +127,7 @@ This provides a structured overview of your AWS serverless project.
 
     Topic Name: Default_CloudWatch_Alarms_Topic
 
-    Recipient: federico.casati@outlook.com
+    Recipient: your.email@example.com
 
     CloudWatch Trigger: blockmyip
 
