@@ -54,6 +54,8 @@ This provides a structured overview of your AWS serverless project.
 
     Blocked IP Set: block-my-ip
 
+    Rate-based rule: Limits requests to 100 per 5 minutes per IP to prevent abuse
+
     Monitoring:
 
         Log Group: blockmyip
