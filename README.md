@@ -7,6 +7,7 @@ This project demonstrates a secure and scalable **serverless web application arc
 
 ![Architecture Diagram](./aws_architecture_diagram.png)
 
+(CloudWatch + SNS are also part of the architecture, not shown in the diagram for simplicity).
 
 ### Detailed Architecture
 
