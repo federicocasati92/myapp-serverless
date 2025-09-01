@@ -43,9 +43,9 @@ Password: PasswordTest123!!
 
 ## 🔐 Security Features
 
-- API access protected via **Amazon Cognito JWT tokens** + throttling rules
-- **AWS WAF** blocks IPs based on custom rules + rate limit rules
-- **CloudWatch Alarms + SNS** send alerts on WAF rule matches
+- API Gateway access protected using Amazon Cognito JWT tokens and custom throttling rules (rate & burst limits)
+- AWS WAF applied to CloudFront to block malicious IPs and enforce rate-based rules (100 requests per 5 minutes per IP)
+- CloudWatch Alarms and SNS notifications alert on suspicious traffic or WAF rule matches
 
 ## 📁 File Structure
 ```text
