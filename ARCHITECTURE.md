@@ -41,9 +41,10 @@ This provides a structured overview of your AWS serverless project.
 
     S3 Origin Domain: stsite3.com.s3-website-us-east-1.amazonaws.com
 
-    Caching Settings: Custom caching TTL = 0
+    Caching Settings: Custom caching TTL = 0  (to reflect real-time updates during development/demo)
 
     Response headers policy: Custom – allows Cognito domain
+
 
 🔐 AWS WAF – Web Application Firewall
 
