@@ -19,7 +19,7 @@ For a complete breakdown of all AWS services, configurations, and security setti
 **Key Components:**
 
 - **S3 + CloudFront:** static hosting of the frontend with CDN acceleration (S3 bucket is pubblic because it hosts a static website)
-- **WAF (Web Application Firewall):** protects CloudFront from malicious IPs
+- **WAF (Web Application Firewall):** protects CloudFront from malicious IPs and ensure rate limit to prevent attacks.
 - **Cognito User Pool:** user authentication and token generation
 - **API Gateway:** exposes the backend as a REST API with Cognito-based authorization
 - **Lambda:** handles logic to update click counts and trigger alerts
