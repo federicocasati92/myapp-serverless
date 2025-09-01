@@ -43,7 +43,7 @@ Password: PasswordTest123!!
 
 ## 🔐 Security Features
 
-- API access protected via **Amazon Cognito JWT tokens**
+- API access protected via **Amazon Cognito JWT tokens** + throttling rules
 - **AWS WAF** blocks IPs based on custom rules + rate limit rules
 - **CloudWatch Alarms + SNS** send alerts on WAF rule matches
 
