@@ -154,7 +154,7 @@ This provides a structured overview of your AWS serverless project.
 
     Lambda Execution Role:
 
-        AmazonDynamoDBFullAccess
+        AmazonDynamoDBFullAccess (⚠️ for demo purposes — should be scoped in production)
 
         AWSLambdaBasicExecutionRole-2fb97b34-3e84-440d-b4f3-8d370f8c2983
 
