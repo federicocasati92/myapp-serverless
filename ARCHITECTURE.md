@@ -32,7 +32,7 @@ This provides a structured overview of your AWS serverless project.
 }
 ```
 
- # Amazon CloudFront
+ ## Amazon CloudFront
 
 
     Distribution ID: E2MYBIFW24JUNI
@@ -46,7 +46,7 @@ This provides a structured overview of your AWS serverless project.
     Response headers policy: Custom – allows Cognito domain
 
 
- # AWS WAF – Web Application Firewall
+ ## AWS WAF – Web Application Firewall
 
     Web ACL Name: block-my-ip
 
@@ -65,7 +65,7 @@ This provides a structured overview of your AWS serverless project.
         Notification Topic (SNS):
         arn:aws:sns:us-east-1:617842004789:Default_CloudWatch_Alarms_Topic
 
- # Amazon Cognito – User Authentication
+ ## Amazon Cognito – User Authentication
 
     User Pool ID: us-east-1_crTZroY18
 
@@ -80,7 +80,7 @@ This provides a structured overview of your AWS serverless project.
     Token Handling (Frontend):
     Extract id_token from window.location.hash
 
- # Amazon API Gateway – REST API
+ ## Amazon API Gateway – REST API
 
     API Name: My REST API
 
@@ -109,7 +109,7 @@ This provides a structured overview of your AWS serverless project.
 
         Token Source: Authorization: Bearer <id_token>
 
-  # AWS Lambda – Backend Function
+  ## AWS Lambda – Backend Function
 
     Function Name: clickcounterfunction
 
@@ -122,7 +122,7 @@ This provides a structured overview of your AWS serverless project.
     IAM Role ARN:
     arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
 
-  # Amazon DynamoDB – NoSQL Storage
+  ## Amazon DynamoDB – NoSQL Storage
 
     Table Name: ClickCounter
 
@@ -132,7 +132,7 @@ This provides a structured overview of your AWS serverless project.
 
     Billing Mode: On-Demand
 
- # Amazon SNS – Notifications
+ ## Amazon SNS – Notifications
 
     Topic Name: Default_CloudWatch_Alarms_Topic
 
@@ -140,7 +140,7 @@ This provides a structured overview of your AWS serverless project.
 
     CloudWatch Trigger: blockmyip
 
- # Amazon CloudWatch – Logging & Metrics
+ ## Amazon CloudWatch – Logging & Metrics
 
     Log Groups:
 
@@ -152,7 +152,7 @@ This provides a structured overview of your AWS serverless project.
 
     Alarms: blockmyip
 
- # IAM – Roles & Policies
+ ## IAM – Roles & Policies
 
     Lambda Execution Role:
 
@@ -160,7 +160,7 @@ This provides a structured overview of your AWS serverless project.
 
         AWSLambdaBasicExecutionRole-2fb97b34-3e84-440d-b4f3-8d370f8c2983
 
- # CORS Configuration
+ ## CORS Configuration
 
     Allowed Origins: *
 
