@@ -12,6 +12,9 @@ This provides a structured overview of your AWS serverless project.
 - **Endpoint URL:** `http://stsite3.com.s3-website-us-east-1.amazonaws.com`
 
 **Security Notes:**  
+- Bucket is public to allow static website hosting via CloudFront.
+- Access is limited to **read-only (GetObject)** operations — no write, delete, or list permissions are granted.
+
 - Current bucket policy:
 
 ```json
