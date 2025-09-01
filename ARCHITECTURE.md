@@ -167,3 +167,14 @@ This provides a structured overview of your AWS serverless project.
     Allowed Headers: Authorization, Content-Type
 
 
+## 📌 Notes
+
+- This architecture was built and configured **entirely via AWS Console** (manual deployment).
+- Public access and shared test credentials are intentional for demo/testing purposes.
+- For a production setup, it is recommended to:
+  - Implement least-privilege IAM policies
+  - Use Infrastructure as Code (IaC)
+  - Enable HTTPS-only CloudFront
+  - Integrate Secrets Manager for credential handling
+
+
