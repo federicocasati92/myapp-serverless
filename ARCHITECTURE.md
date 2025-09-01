@@ -89,6 +89,8 @@ This provides a structured overview of your AWS serverless project.
     Endpoint:
     https://7ua2wf7t5b.execute-api.us-east-1.amazonaws.com/prod/click
 
+    Throttling Enabled: Custom rate limit and burst limit applied to protect backend
+    
     Methods Enabled: POST, OPTIONS
 
     CORS Settings:
