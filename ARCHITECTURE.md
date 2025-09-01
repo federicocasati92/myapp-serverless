@@ -34,6 +34,9 @@ This provides a structured overview of your AWS serverless project.
 
 🌍 Amazon CloudFront
 
+- **Caching Settings:** Custom caching TTL = 0 (to reflect real-time updates during development/demo)
+
+
     Distribution ID: E2MYBIFW24JUNI
 
     Domain Name: dtn4bsrr7bbyf.cloudfront.net
