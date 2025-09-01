@@ -15,7 +15,7 @@ This provides a structured overview of your AWS serverless project.
 - Bucket is public to allow static website hosting via CloudFront.
 - Access is limited to **read-only (GetObject)** operations — no write, delete, or list permissions are granted.
 
-- Current bucket policy:
+  Current bucket policy:
 
 ```json
 {
