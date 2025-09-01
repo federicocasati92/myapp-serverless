@@ -3,7 +3,7 @@
 This project demonstrates a secure and scalable **serverless web application architecture** on AWS, combining a static frontend with an authenticated backend and cloud-native alerting features.
 
 
-## 🔧 Architecture Overview
+##  Architecture Overview
 
 ![Architecture Diagram](./aws_architecture_diagram.png)
 
@@ -41,19 +41,19 @@ Username: testuser1@example.com
 
 Password: PasswordTest123!!
 
-## 🔐 Security Features
+##  Security Features
 
 - API Gateway access protected using Amazon Cognito JWT tokens and custom throttling rules (rate & burst limits)
 - AWS WAF applied to CloudFront to block malicious IPs and enforce rate-based rules (100 requests per 5 minutes per IP)
 - CloudWatch Alarms and SNS notifications alert on suspicious traffic or WAF rule matches
 
-## 📁 File Structure
+##  File Structure
 ```text
 /frontend --> Static website files (HTML, JS, Cognito integration)
 /backend --> Lambda function code
 /screenshots --> AWS console screenshots 
 ```
-## 🚀 How to Deploy
+##  How to Deploy
 
 This is a manual deployment project (no IaC yet). Main steps:
 
@@ -65,19 +65,19 @@ This is a manual deployment project (no IaC yet). Main steps:
 6. Set up DynamoDB table for click storage
 7. Define WAF rules and CloudWatch alarms
 
-## 📷 AWS Console Screenshots
+##  AWS Console Screenshots
 
 You can find all the screenshots organized by service
 in the folder: [screenshots](./screenshots/)
 
-## 📚 Technologies Used
+##  Technologies Used
 
 - Amazon S3, CloudFront, WAF
 - AWS Lambda, API Gateway, DynamoDB
 - Amazon Cognito
 - Amazon CloudWatch + SNS
 
-## 🧠 Learning Outcome
+##  Learning Outcome
 
 - Designing real-world serverless architecture
 - Secure API development with JWT authorization
